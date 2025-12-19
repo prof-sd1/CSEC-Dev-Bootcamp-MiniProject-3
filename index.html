@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f4f8;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #e3edf7;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #2c3e50;
+            color: #ffffff;
+        }
+
+        button:hover {
+            background-color: #1a252f;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            button {
+                padding: 10px 24px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="statusText">OFF</h1>
+        <button id="toggleBtn">Toggle</button>
+    </div>
+
+    <script>
+        const statusText = document.getElementById("statusText");
+        const toggleBtn = document.getElementById("toggleBtn");
+
+        let isOn = false;
+
+        toggleBtn.addEventListener("click", () => {
+            isOn = !isOn;
+            statusText.textContent = isOn ? "ON" : "OFF";
+        });
+    </script>
+</body>
+</html>
